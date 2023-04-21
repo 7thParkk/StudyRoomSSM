@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--
+         SpringMVC只扫描controller包即可
+     -->
+    <context:component-scan base-package="com.cc.controller"/>
+    <!-- 解决静态资源访问问题，如果不加mvc:annotation-driven会导致无法访问handler-->
+    <mvc:default-servlet-handler/>
+    <!--解决响应乱码-->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="utf-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <!--配置视图解析器  前后端不分离项目使用-->
+    <!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+            &lt;!&ndash;要求拼接的前缀&ndash;&gt;
+            <property name="prefix" value="/WEB-INF/page/"></property>
+            &lt;!&ndash;要拼接的后缀&ndash;&gt;
+            <property name="suffix" value=".jsp"></property>
+        </bean>-->
+
+    <!--配置拦截器-->
+    <!--    <mvc:interceptors>
+
+            <mvc:interceptor>
+                &lt;!&ndash;
+                &ndash;&gt;
+                <mvc:mapping path="/**"/>
+                &lt;!&ndash;配置排除拦截的路径&ndash;&gt;
+                <mvc:exclude-mapping path="/"/>
+                &lt;!&ndash;配置拦截器对象注入容器&ndash;&gt;
+                <bean class=""></bean>
+            </mvc:interceptor>
+        </mvc:interceptors>-->
+
+    <!--
+          文件上传解析器
+          注意：id 必须为 multipartResolver
+          如果需要上传文件时可以放开相应配置
+      -->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+    <!--&lt;!&ndash; 设置默认字符编码 &ndash;&gt;-->
+    <!--<property name="defaultEncoding" value="utf-8"/>-->
+    <!--&lt;!&ndash; 一次请求上传的文件的总大小的最大值，单位是字节&ndash;&gt;-->
+    <!--<property name="maxUploadSize" value="#{1024*1024*100}"/>-->
+    <!--&lt;!&ndash; 每个上传文件大小的最大值，单位是字节&ndash;&gt;-->
+    <!--<property name="maxUploadSizePerFile" value="#{1024*1024*50}"/>-->
+    <!--</bean>-->
+</beans>

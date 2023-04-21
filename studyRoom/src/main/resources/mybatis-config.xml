@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--指定使用log4j打印Mybatis日志-->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <!--配置别名包-->
+    <typeAliases>
+        <package name="com.cc.domain"></package>
+    </typeAliases>
+    <plugins>
+        <!-- 注意：分页助手的插件，配置在通用mapper之前 -->
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!-- 指定方言 -->
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
+</configuration>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.UserDao">
+<!--    添加用户-->
+    <insert id="addUser">
+        insert into user(id, userAccount, userPassword, userName, userAvatar, userProfile) values(#{id}, #{userAccount}, #{userPassword}, #{userName}, #{userAvatar}, #{userProfile})
+    </insert>
+
+    <insert id="addStudyTime">
+        insert into studytime_tb(id, userAccount, startTime, min) values (#{id}, #{userAccount}, #{startTime}, #{min});
+    </insert>
+
+
+    <!--    修改用户简介-->
+    <update id="updateUserProfile">
+        update user set userProfile=#{userProfile} where userAccount=#{userAccount}
+    </update>
+<!--    修改用户密码-->
+    <update id="updateUserPassword">
+        update user set userPassword=#{userPassword} where userAccount=#{userAccount}
+    </update>
+
+    <update id="updateUsername">
+        update user set userName=#{userName} where userAccount=#{userAccount}
+    </update>
+
+    <!--根据id查询用户-->
+    <select id="findUserById" resultType="com.cc.domain.User">
+        select * from user where id=#{id}
+    </select>
+
+    <!-- 根据用户名查询密码   -->
+    <select id="findPasswordByUserAccount" resultType="java.lang.String">
+        select userPassword from user where userAccount=#{userAccount}
+    </select>
+
+<!--    查询用户名是否存在-->
+    <select id="findUserByUserAccount" resultType="com.cc.domain.User">
+        select * from user where userAccount=#{userAccount}
+    </select>
+    <select id="getSoupSum" resultType="java.lang.Integer">
+        select count(*) from soup;
+    </select>
+    <select id="getSoupById" resultType="java.lang.String">
+        select content from soup where id=#{soupId};
+    </select>
+    <select id="getStudyTime" resultType="com.cc.domain.StudyTime">
+        select * from studytime_tb where userAccount=#{userAccount};
+    </select>
+
+</mapper>

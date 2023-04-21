@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cc.dao.StudyDao">
+
+    <select id="getOneSumTime" resultType="java.lang.Double">
+        select sum(min) from studytime_tb where userAccount=#{userAccount};
+    </select>
+    <select id="getTimeSumRankList" resultType="com.cc.domain.StudyTime">
+        select userAccount,sum(min) as `min` from studytime_tb group by userAccount order by min desc ;
+    </select>
+</mapper>

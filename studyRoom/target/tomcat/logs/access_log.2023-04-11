@@ -1,0 +1,9 @@
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:21:37 +0800] "GET / HTTP/1.1" 404 951 http-bio-81-exec-1 41
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:21:37 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-81-exec-3 2
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:21:53 +0800] "GET /findUserById/1 HTTP/1.1" 500 4173 http-bio-81-exec-4 29
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:24:08 +0800] "GET /findUserById/1 HTTP/1.1" 500 4173 http-bio-81-exec-5 3
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:24:09 +0800] "GET /findUserById/1 HTTP/1.1" 500 4173 http-bio-81-exec-6 3
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:24:11 +0800] "GET /findUserById/1 HTTP/1.1" 500 4173 http-bio-81-exec-7 3
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:25:01 +0800] "GET /findUserById/2 HTTP/1.1" 500 4173 http-bio-81-exec-1 63
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:34:25 +0800] "GET /findUserById/2 HTTP/1.1" 500 4173 http-bio-81-exec-2 538825
+0:0:0:0:0:0:0:1 - - [11/Apr/2023:20:34:25 +0800] "GET /findUserById/2 HTTP/1.1" 500 4173 http-bio-81-exec-3 485995
